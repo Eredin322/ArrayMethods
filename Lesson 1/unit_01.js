@@ -5,7 +5,14 @@
 let a1 = [4, 12, 4, 2, 15, 98];
 
 const f1 = () => {
-    // обратите внимание в массиве только ЧИСЛА!
+    const input = +document.querySelector('.i-1').value;
+    const out = document.querySelector('.out-1');
+    if (a1.indexOf(input) !== -1) {
+        out.textContent = 'true';
+    }
+    else {
+        out.textContent = 'false';
+    }
 }
 
 // TASK 02
@@ -16,9 +23,16 @@ const f1 = () => {
 let a2 = [4, 12, 4, 2, 15, 98];
 
 const f2 = () => {
-    // обратите внимание в массиве только ЧИСЛА!g('02');
-    //
+    const input = +document.querySelector('.i-2').value;
+    const out = document.querySelector('.out-2');
+    if (a2.indexOf(input) !== -1) {
+        out.textContent = a2.indexOf(input);
+    }
+    else {
+        out.textContent = 'false';
+    }
 }
+
 
 // TASK 03
 // По нажатию b-3 выполняется функция f3. Функция считывает значение из i-3 и с помощью indexOf и ищет данный элемент в массиве a3. Выводит в out-3  false, если такого элемента нет в массиве, и true если есть.
@@ -28,6 +42,14 @@ const f2 = () => {
 let a3 = [4, 12, 4, 2, 15, 98];
 
 const f3 = () => {
+    const input = +document.querySelector('.i-3').value;
+    const out = document.querySelector('.out-3');
+    if (a3.indexOf(input) !== -1) {
+        out.textContent = 'true';
+    }
+    else {
+        out.textContent = 'false';
+    }
 }
 
 // TASK 04
@@ -37,6 +59,13 @@ const f3 = () => {
 let a4 = [1, '1', 2, '2', '3'];
 
 const f4 = (arr, elem) => {
+    let out = document.querySelector('.out-4');
+    if (arr.indexOf(elem) !== -1) {
+        out.textContent = arr.indexOf(elem);
+    }
+    else {
+        out.textContent = 'false';
+    }
 }
 
 // TASK 05
@@ -51,6 +80,15 @@ const f4 = (arr, elem) => {
 let a5 = [22, 33, 44, 55, 66, 77, 88, 33, 44, 55, 66, 77];
 
 const f5 = () => {
+    const value = +document.querySelector('.i-5-1').value;
+    const startPos = +document.querySelector('.i-5-2').value;
+    const out = document.querySelector('.out-5');
+    if (a5.indexOf(value, startPos) !== -1) {
+        out.textContent = a5.indexOf(value, startPos);
+    }
+    else {
+        out.textContent = '-1';
+    }
 }
 
 // TASK 06
@@ -61,6 +99,9 @@ const f5 = () => {
 let a6 = '987123abcdefyttb4';
 
 const f6 = () => {
+    const value = document.querySelector('.i-6').value;
+    const out = document.querySelector('.out-6');
+    out.textContent = a6.indexOf(value);
 }
 
 // TASK 07
@@ -70,6 +111,15 @@ const f6 = () => {
 let a7 = [21, 22, 23, 24, 25, 26, 27];
 
 const f7 = (arr, elem) => {
+    const out = document.querySelector('.out-7');
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === elem) {
+            return out.textContent = i;
+        }
+        else {
+            out.textContent = -1;
+        }
+    }
 }
 
 // TASK 08 * - сложная
@@ -81,7 +131,13 @@ let a8 = [1, 2, 3, 1, 3, 2, 55, 23, 53, 24, 55, 3, 1, 5, 2, 3, 5, 4, 6, 7, 12, 5
 let res08 = [];
 
 const f8 = () => {
-    // ваш код
+    const input = +document.querySelector('.i-8').value;
+    res08 = [];
+    for (let i = 0; i < a8.length; i++) {
+        if (a8[i] === a8[a8.indexOf(input)]) {
+            res08.push(i);
+        }
+    }
     document.querySelector('.out-8').innerHTML = res08;
 }
 
@@ -102,6 +158,14 @@ let a9 = [
 ];
 
 const f9 = () => {
+    const value = +document.querySelector('.i-9').value;
+    const out = document.querySelector('.out-9');
+    out.textContent = ''
+    for (let i = 0; i < a9.length; i++) {
+        if (a9[i].indexOf(value) !== -1) {
+            out.textContent += i + ' ';
+        }
+    }
 }
 
 // TASK 10
@@ -116,6 +180,12 @@ const f9 = () => {
 let a10 = [67, '55', 2, 5, '4', '8', 8, '66', '54', 11];
 
 const f10 = (arr, elem) => {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] == elem) {
+            return i;
+        }
+    }
+    return -1;
 }
 
 
@@ -135,5 +205,5 @@ document.querySelector('.b-7').addEventListener('click', () => {
 document.querySelector('.b-8').addEventListener('click', f8);
 document.querySelector('.b-9').addEventListener('click', f9);
 document.querySelector('.b-10').addEventListener('click', () => {
-    document.querySelector('.out-10').innerHTML = f10(a10, 8);
+    document.querySelector('.out-10').innerHTML = f10(a10, 55);
 });
