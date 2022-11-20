@@ -6,8 +6,9 @@
 let a1 = [4, 12, 4, 2, 15, 98];
 
 const f1 = () => {
-    // обратите внимание в массиве только ЧИСЛА!
-    //
+    const input = +document.querySelector('.i-1').value;
+    const out = document.querySelector('.out-1');
+    out.textContent = a1.includes(input);
 }
 
 // TASK 02
@@ -18,7 +19,13 @@ const f1 = () => {
 let a2 = [4, 12, 4, 2, 15, 98];
 
 const f2 = () => {
-
+    const input = +document.querySelector('.i-2').value;
+    const out = document.querySelector('.out-2');
+    if (a2.includes(input)) {
+        out.textContent = a2.indexOf(input);
+    } else {
+        out.textContent = a2.includes(input);
+    }
 }
 
 // TASK 03
@@ -26,18 +33,41 @@ const f2 = () => {
 // Как тестируется - ввожу числа и проверяю результат.
 
 
-let a3 = [[3,4,5], [6,7,1], [5,6,7,1,12], [134,234,432]];
+let a3 = [[3, 4, 5], [6, 7, 1], [5, 6, 7, 1, 12], [134, 234, 432]];
 
 const f3 = () => {
+    const input = +document.querySelector('.i-3').value;
+    const out = document.querySelector('.out-3');
+    for (let i = 0; i < a3.length; i++) {
+        if (a3[i].includes(input)) {
+            out.innerHTML = true;
+            return;
+        }
+    }
+    out.innerHTML = false;
 }
 
 // TASK 04
 // По нажатию b-4 выполняется функция f4. Функция считывает значение из i-4 и с помощью includes ищет данный элемент во вложенных массивах массива a4. Выводит в out-4  false, если такого элемента нет и ключ вложенного массива в котором такой элемент есть(если есть). Обратите внимание! Только числа! Если ключей несколько, то выводятся через пробел.
 
 
-let a4 = { a : [1,2,3], b : [3, 1, 5, 8], c : [88, 77, 66]};
+let a4 = { a: [1, 2, 3], b: [3, 1, 5, 8], c: [88, 77, 66] };
 
 const f4 = () => {
+    const input = +document.querySelector('.i-4').value;
+    const out = document.querySelector('.out-4');
+    out.innerHTML = '';
+    let accum = 0;
+    for (let key in a4) {
+        if (a4[key].includes(input)) {
+            out.textContent += key + ' ';
+        } else {
+            accum++;
+        }
+    }
+    if (accum === 3) {
+        out.textContent += false;
+    }
 }
 
 // TASK 05
@@ -51,7 +81,10 @@ const f4 = () => {
 let a5 = [22, 33, 44, 55, 66, 77, 88, 33, 44, 55, 66, 77];
 
 const f5 = () => {
- 
+    const value = +document.querySelector('.i-5-1').value;
+    const startPos = +document.querySelector('.i-5-2').value;
+    const out = document.querySelector('.out-5');
+    out.textContent = a5.includes(value, startPos);
 }
 
 // TASK 06
@@ -62,6 +95,9 @@ const f5 = () => {
 let a6 = ['Hi', 'wiFI'];
 
 const f6 = () => {
+    const input = document.querySelector('.i-6').value;
+    const out = document.querySelector('.out-6');
+    out.textContent = a6.includes(input);
 }
 
 // TASK 07
@@ -71,6 +107,13 @@ const f6 = () => {
 let a7 = [21, 22, 23, 24, 25, 26, 27];
 
 const f7 = (arr, elem) => {
+    const out = document.querySelector('.out-7');
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === elem) {
+            return out.textContent = true;
+        }
+    }
+    return out.textContent = false;
 }
 
 // TASK 08
@@ -80,6 +123,10 @@ const f7 = (arr, elem) => {
 let a8 = 'JSbestever';
 
 const f8 = () => {
+    const input = document.querySelector('.i-8').value;
+    const out = document.querySelector('.out-8');
+    if (!input) return out.innerHTML = false;
+    out.innerHTML = a8.includes(input);
 }
 
 // TASK 09
@@ -92,7 +139,12 @@ const f8 = () => {
 let a9 = ['A', 'b', 'c', 'C', 'D', 12, 5, 'd', 1];
 
 const f9 = () => {
-    console.log('09');
+    const input = document.querySelector('.i-9').value;
+    const out = document.querySelector('.out-9');
+    if (a9.includes(input.toLowerCase())) return out.innerHTML = true;
+    if (a9.includes(input.toUpperCase())) return out.innerHTML = true;
+    if (a9.includes(+input)) return out.innerHTML = true;
+    return out.innerHTML = false;
 }
 
 // TASK 10
@@ -115,11 +167,11 @@ const f10 = () => {
 // TASK 11
 // Ну и на прокачку ваших скиллов. Выполните код ниже. Изучите консоль. По очереди расскоментируйте строки  и смотрите на результат. Проанализируйте.
 
-const a11 = [[1,2] , {a : 1}, true, '', [1], Infinity, undefined, null];
+const a11 = [[1, 2], { a: 1 }, true, '', [1], Infinity, undefined, null];
 
 const f11 = () => {
-    let c = [1,2];
-    // c = {a:1};
+    // let c = [1, 2];
+    // c = { a: 1 };
     // c = true;
     // c = '';
     // c = [1];
@@ -135,10 +187,10 @@ document.querySelector('.b-3').addEventListener('click', f3);
 document.querySelector('.b-4').addEventListener('click', f4);
 document.querySelector('.b-5').addEventListener('click', f5);
 document.querySelector('.b-6').addEventListener('click', f6);
-document.querySelector('.b-7').addEventListener('click', ()=>{
-    f7(a7, 23);
+document.querySelector('.b-7').addEventListener('click', () => {
+    f7(a7, 19);
 });
 document.querySelector('.b-8').addEventListener('click', f8);
 document.querySelector('.b-9').addEventListener('click', f9);
-document.querySelector('.b-10').addEventListener('click',f10);
-document.querySelector('.b-11').addEventListener('click',f11);
+document.querySelector('.b-10').addEventListener('click', f10);
+document.querySelector('.b-11').addEventListener('click', f11);
