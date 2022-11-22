@@ -5,7 +5,10 @@
 let a1 = ['hello', 't'];
 
 const f1 = () => {
-
+    const value = document.querySelector('.i-1').value;
+    a1.unshift(value);
+    console.log(a1);
+    return a1;
 }
 
 // TASK 02
@@ -14,7 +17,10 @@ const f1 = () => {
 let a2 = ['b', 'c', 12, 34, 'dh', 17];
 
 const f2 = () => {
-
+    const value = +document.querySelector('.i-2').value;
+    a2.unshift(value, value ** 2);
+    console.log(a2);
+    return a2;
 }
 
 // TASK 03
@@ -24,9 +30,9 @@ const f2 = () => {
 let a3 = ['a', 'b'];
 
 const f3 = () => {
-    // ваш код
-    // console.log(a3.unShift(ваша переменная));
-    // console.log(a3);
+    const value = document.querySelector('.i-3').value;
+    // a3.unshift(value);
+    console.log(a3.unshift(value));
 }
 
 // TASK 04
@@ -36,7 +42,8 @@ const f3 = () => {
 let a4 = [14, 15, 16, 17, 18];
 
 const f4 = () => {
-
+    a4.shift();
+    console.log(a4);
 }
 
 // TASK 05
@@ -45,7 +52,7 @@ const f4 = () => {
 let a5 = [55, 66, 77, 88, 99, 129];
 
 const f5 = () => {
-    // return a5.shift();
+    return a5.shift();
 }
 
 // TASK 06
@@ -55,7 +62,13 @@ const f5 = () => {
 let a6 = ['a', 'b', 'c', 'd', 'e', 'f'];
 
 const f6 = (elem) => {
-
+    let arr = [];
+    arr.push(elem);
+    for (let i = 0; i < a6.length; i++) {
+        arr.push(a6[i]);
+    }
+    a6 = arr
+    return a6.length
 }
 
 // TASK 07
@@ -64,7 +77,7 @@ const f6 = (elem) => {
 let a7 = [21, 22, 23, 24, 25, 26, 27];
 
 const f7 = () => {
-
+    return a7.shift();
 }
 
 // TASK 08
@@ -74,6 +87,7 @@ const f7 = () => {
 let a8 = [44, 45, 46, 47, 48, 49];
 
 const f8 = () => {
+    console.log(a8.slice(1, 4));
 }
 
 // TASK 09
@@ -82,6 +96,7 @@ const f8 = () => {
 let a9 = ['A', 2, 43, 12, 13, 14, 15, 16];
 
 const f9 = () => {
+    console.log(a9.slice(2));
 }
 
 // TASK 10
@@ -90,7 +105,7 @@ const f9 = () => {
 const a10 = [100, 2, 43, 12, 13, 14, 15, 16];
 
 const f10 = () => {
-
+    return console.log(a10.slice(2, -2));
 }
 
 
@@ -108,7 +123,8 @@ document.querySelector('.b-6').addEventListener('click', () => {
 });
 document.querySelector('.b-7').addEventListener('click', () => {
     console.log(f7());
+    console.log(a7);
 });
 document.querySelector('.b-8').addEventListener('click', f8);
 document.querySelector('.b-9').addEventListener('click', f9);
-document.querySelector('.b-10').addEventListener('click', f10());
+document.querySelector('.b-10').addEventListener('click', f10);
