@@ -6,7 +6,12 @@ let a1 = [5, 6, 7];
 let a1_res;
 
 const f1 = () => {
-
+    a1_res = [];
+    a1.map((item) => {
+        return a1_res.push(item * 2);
+    });
+    console.log(a1);
+    console.log(a1_res);
 }
 
 // TASK 02
@@ -21,7 +26,9 @@ a2[6] = 3;
 let a2_res;
 
 const f2 = () => {
-
+    a2_res = a2.map(item => item * 3)
+    console.log(a2);
+    console.log(a2_res);
 }
 
 // TASK 03
@@ -33,12 +40,14 @@ let a3 = [2, 3, 4, 5, 6];
 let a3_res;
 
 const f3 = () => {
-    // a3_res = a3.map( (item, index) => {
-    //         if (index == 2) {
-    // a3[3] = 100;
-    // }
-    // тут ваши вычисления
-    //});
+    a3_res = a3.map((item, index) => {
+        if (index == 2) {
+            a3[3] = 100;
+        }
+        return item * 3
+    });
+    console.log(a3);
+    console.log(a3_res);
 }
 
 // TASK 04
@@ -49,7 +58,14 @@ let a4 = [3, -2, 4, 1, 9, -3, 0, 0, 2, -8, 12];
 let a4_res;
 
 const f4 = () => {
-
+    a4_res = a4.map(item => {
+        if (item > 0) {
+            return item
+        }
+        return 0;
+    })
+    console.log(a4);
+    console.log(a4_res);
 }
 
 // TASK 05
@@ -59,7 +75,12 @@ let a5 = [55, 66, 77];
 let a5_res;
 
 const f5 = () => {
+    a5_res = a5.map((item, index) => {
+        return index;
+    })
 
+    console.log(a5);
+    console.log(a5_res);
 }
 
 // TASK 06
@@ -73,7 +94,12 @@ a6[6] = 3;
 let a6_res;
 
 const f6 = () => {
+    a6_res = a6.map((item, index) => {
+        return index;
+    })
 
+    console.log(a6);
+    console.log(a6_res);
 }
 
 // TASK 07
@@ -83,7 +109,9 @@ let a7 = [[22, 13, 45], [5, 2], [5, 3, 6, 7, 9]];
 let a7_res;
 
 const f7 = () => {
-
+    a7_res = a7.map(item => item.length);
+    console.log(a7);
+    console.log(a7_res);
 }
 
 // TASK 08
@@ -93,33 +121,49 @@ let a8 = [[22, 13, 45], [5, 2], [5, 3, 6, 7, 9]];
 let a8_res;
 
 const f8 = () => {
-
+    a8_res = a8.map(item => {
+        return item.reduce((accum, item) => accum + item);
+    })
+    console.log(a8);
+    console.log(a8_res);
 }
 
 // TASK 09
 // По нажатию b-9 выполняется функция f9. Функция применяет к a9 метод map и создает два массива. a9_even содержит четные элементы a9, a9_index содержит ВСЕ индексы элементов a9. Выведите в консоль все массивы после выполнения f9.
 
 let a9 = [22, 13, 45, 5, 2, 5, 3, 6, 7, 9];
-let a9_index;
-let a9_even;
+let a9_index = [];
+let a9_even = [];
 
 const f9 = () => {
+    a9.map((item, index) => {
+        if (item % 2 === 0) {
+            a9_index.push(index);
+            return a9_even.push(item);
+        }
+        return a9_index.push(index);
+    })
+    console.log(a9);
+    console.log(a9_index);
+    console.log(a9_even);
 }
 
 // TASK 10
 // Ну и на прокачку ваших скиллов. Напишем функцию f10, которая эмулирует метод map. Первым параметром функция принимает массив, второмы - имя функции которая применяется к элементам массива. Возвращает новый элемент. Функция коллбек должна принимать только один параметр - текущий элемент. Примените вашу функцию так, чтобы на основе массива a10, функция f10 создала массив a20_res, который содержит элементы a10 умноженные на 2. В качестве коллбека примените-напишите callback10;
 
-let a10 = [2, 3, 4, 5, 6, 7];
+let a10 = [2, 3, 40, 5, 6, 7];
 let a10_res;
 
 const f10 = (arr, fc) => {
-
-    // return ...
+    a10_res = [];
+    for (let i = 0; i < arr.length; i++) {
+        fc(arr[i]);
+    }
+    return a10_res;
 }
 
 function callback10(elem) {
-    // ваш код
-    // return
+    return a10_res.push(elem * 10);
 }
 
 
