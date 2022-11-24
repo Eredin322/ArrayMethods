@@ -6,7 +6,12 @@ let a1 = [5, 6, 7, 8, 44, 21, 43, 26, 78, 100, -2, 0, 17];
 let z1 = [];
 
 const f1 = () => {
-
+    z1 = a1.filter(item => {
+        if (item % 2 === 0 && item !== 0) {
+            return true;
+        }
+    });
+    console.log(z1);
 }
 
 // TASK 02
@@ -16,7 +21,12 @@ let a2 = [22, 33, 44, 55, 66, 77, 88, 99];
 let z2 = [];
 
 const f2 = () => {
-
+    z2 = a2.filter((item, index) => {
+        if (index % 2 === 0) {
+            return true;
+        }
+    })
+    console.log(z2);
 }
 
 // TASK 03
@@ -27,7 +37,13 @@ let a3 = [2, 3, 4, 5, -6, 55, 1, 12, -3, 7, 4, 5, 2];
 let z3 = [];
 
 const f3 = () => {
-
+    a3.filter((item, index) => {
+        if (item > 4) {
+            z3.push(index);
+            return true;
+        }
+    })
+    console.log(z3);
 }
 
 // TASK 04
@@ -38,7 +54,12 @@ let a4 = [3, -2, 4, 1, '9', -3, '0', true, 2, -8, undefined];
 let z4 = [];
 
 const f4 = () => {
-
+    z4 = a4.filter(item => {
+        if (typeof item === 'number') {
+            return true;
+        }
+    })
+    console.log(z4);
 }
 
 // TASK 05
@@ -48,7 +69,12 @@ let a5 = [[4, 5], [6, 7, 8], [12, 5], [47, 3, 54, 62], [5]]; // ожидаю [[4
 let z5 = [];
 
 const f5 = () => {
-
+    z5 = a5.filter(item => {
+        if (item.includes(5) === true) {
+            return true;
+        }
+    })
+    console.log(z5);
 }
 
 // TASK 06
@@ -58,7 +84,10 @@ let a6 = [[4, 5], [6, 7, 3], [12, 5], [47, 3, 54, 62], [5]]; // ожидаю [[6
 let z6 = [];
 
 const f6 = () => {
-
+    z6 = a6.filter(item => {
+        return item.reduce((accum, item) => accum + item) % 2 === 0;
+    })
+    console.log(z6);
 }
 
 // TASK 07
@@ -74,7 +103,8 @@ let a7 = [
 let z7 = [];
 
 const f7 = () => {
-
+    z7 = a7.filter(item => item.pass.length <= 6)
+    console.log(z7);
 }
 
 // TASK 08
@@ -85,7 +115,14 @@ let z8 = [];
 let z8_2 = [];
 
 const f8 = () => {
-
+    a8.filter(item => {
+        if (item % 2 === 0 && item !== 0) {
+            return z8.push(item);
+        }
+        return z8_2.push(item);
+    })
+    console.log(z8)
+    console.log(z8_2)
 }
 
 // TASK 09
@@ -95,6 +132,8 @@ let a9 = [6, 7, 9];
 let z9 = {}; // {6 : 6, 7: 7, 9: 9}
 
 const f9 = () => {
+    a9.filter(item => z9[item] = item)
+    console.log(z9)
 }
 
 // TASK 10
@@ -104,12 +143,12 @@ let a10 = { "hi": 5, "test": 2, "best": 12, "quest": -6 };
 let z10 = {}; // ожидаю {"best" : 12, "quest" : -6};
 
 const f10 = () => {
-
-}
-
-function callback10(elem) {
-    // ваш код
-    // return
+    for (let key in a10) {
+        if (Math.abs(a10[key]) > 5) {
+            z10[key] = a10[key]
+        }
+    }
+    console.log(z10);
 }
 
 
