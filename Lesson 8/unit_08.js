@@ -7,6 +7,8 @@ let a1_1 = [55, 66, 77];
 let a1_res;
 
 const f1 = () => {
+    a1_res = a1.concat(a1_1);
+    document.querySelector('.out-1').innerHTML = a1_res;
 }
 
 // TASK 02
@@ -17,7 +19,8 @@ let a2_1 = 'best';
 let a2_res;
 
 const f2 = () => {
-
+    a2_res = a2.concat(a2_1);
+    document.querySelector('.out-2').innerHTML = a2_res;
 }
 
 // TASK 03
@@ -29,7 +32,8 @@ let a3_1 = [5, 7];
 let a3_res;
 
 const f3 = () => {
-
+    a3_res = a3.concat(a3_1)
+    document.querySelector('.out-3').innerHTML = a3_res;
 }
 
 // TASK 04
@@ -41,12 +45,15 @@ let a4_1 = 'prime';
 let a4_res;
 
 const f4 = () => {
+    a4_res = a4.concat(a4_1)
+    document.querySelector('.out-4').innerHTML = a4_res;
 }
 
 // TASK 05
 // Напишите функцию f5 эмулятор concat. Функция должна принимать два аргумента массива и возвращать новый массив объединенный из этих двух. 
 
 const f5 = (ar1, ar2) => {
+    return [...ar1, ...ar2];
 }
 
 // TASK 06
@@ -55,6 +62,7 @@ const f5 = (ar1, ar2) => {
 
 // для примера я написал 1, но тестировать буду с любым количеством
 const f6 = (arg1) => {
+    return [...arg1];
 }
 
 // TASK 07
@@ -63,6 +71,8 @@ const f6 = (arg1) => {
 let a7 = [3, -4, 5, -6, 7, 45, 67];
 
 const f7 = () => {
+    a7.splice(2, 3);
+    document.querySelector('.out-7').innerHTML = a7;
 }
 
 // TASK 08
@@ -73,6 +83,8 @@ n8 = 4;
 k8 = 3;
 
 const f8 = () => {
+    a8.splice(k8, n8);
+    document.querySelector('.out-8').innerHTML = a8;
 }
 
 // TASK 09
@@ -81,18 +93,34 @@ const f8 = () => {
 let a9 = [-2, 3, -4, 5, -6, 7]; // 105
 
 const f9 = () => {
+    a9.splice(0, 3, 7, 8);
+    console.log(a9);
 }
 
 // TASK 10
-// Напишите функцию эмуляцию splice. Функция принимает 4 параметра - исходный массив, индекс с которого удалять, количество удаляемых элементов, и массив с новыми элементами, которые нужно добавить. Возвращает НОВЫЙ массив на основе исходного и условий.
+// Напишите функцию эмуляцию splice. Функция принимает 4 параметра - иясходный массив, индекс с которого удалять, количество удаляемых элементов, и массив с новыми элементами, которые нужно добавить. Возвращает НОВЫЙ массив на основе исходного и условий.
 
 let a10 = [-2, 3, -4, 5, -6, 7];  // [15,-12]
 let from = 2;
-let num = 3;
+let num = 4;
 let add = [999, 1000]
 
 // что хочу получить в результате работы функции - [-2, 3, 999,1000,  7]
 const f10 = (arr, from, num, add) => {
+    let res = [];
+    let count = 0;
+    for (let i = 0; i < a10.length; i++) {
+        if (i < from + num && i >= from) {
+            if (add[count] !== undefined) {
+                res.push(add[count]);
+                count++;
+                continue;
+            }
+            continue;
+        }
+        res.push(arr[i]);
+    }
+    return res
 }
 
 
@@ -105,7 +133,7 @@ document.querySelector('.b-5').addEventListener('click', () => {
     document.querySelector('.out-5').innerHTML = f5([3, 4, 5], [6, 7, 8]);
 });
 document.querySelector('.b-6').addEventListener('click', () => {
-    document.querySelector('.out-6').innerHTML = f6([2, 3], ['hi'], [6, 7, 8], [23, 5]);
+    document.querySelector('.out-6').innerHTML = f6([[2, 3], ['hi'], [6, 7, 8], [23, 5]]);
 });
 document.querySelector('.b-7').addEventListener('click', f7);
 document.querySelector('.b-8').addEventListener('click', f8);
