@@ -3,12 +3,17 @@
 
 
 let a1 = [13, 15, 22, 23, 26, 35, 72];
-let a1_from = 23;
-let a1_to = 27; 
+let a1_from = 27;
+let a1_to = 37;
 // ожидаю 26, но вы протестируйте и на других
 
 const f1 = () => {
-
+    let res = a1.find(item => {
+        if (item > a1_from && item < a1_to) {
+            return true;
+        }
+    })
+    document.querySelector('.out-1').innerHTML = res;
 }
 
 
@@ -17,10 +22,16 @@ const f1 = () => {
 
 let a2 = [13, 15, 22, 23, 26, 35, 72];
 let a2_from = 23;
-let a2_to = 27; 
+let a2_to = 27;
 
 const f2 = () => {
-
+    let res = a2.find(item => {
+        if (item > a2_from && item < a2_to) {
+            return true
+        }
+    })
+    if (res === undefined) res = false;
+    document.querySelector('.out-2').innerHTML = res;
 }
 
 // TASK 03
@@ -28,33 +39,49 @@ const f2 = () => {
 
 let a3 = [13, 15, 22, 23, 26, 35, 72];
 let a3_from = 14;
-let a3_to = 25; 
+let a3_to = 25;
 let a3_res = [];
 
 const f3 = () => {
-
+    a3_res = [];
+    a3_res = a3.filter(item => item > a3_from && item < a3_to ? true : false)
+    document.querySelector('.out-3').innerHTML = a3_res[0];
 }
 
 // TASK 04
 // По нажатию b-4 выполняется функция f4. Функция с помощью FIND должна найти первый элемент строки str4, который лежит от a4_from, до a4_to(строго больше, строго меньше). Вывести результат в out-4. Если совпадений нет вывести undefined. Обратите внимание, find не работает со строками!
 
 
-let str4 = 'a_baba_galamaga_tvoe_korito_est_nesti';
+let str4 = 'a_baba_galamaga_voe_korito_est_nesti';
 let a4_from = 'k';
 let a4_to = 't';
 
 const f4 = () => {
-
-} 
+    let arr = str4.split('');
+    let res = arr.find((item, index) => {
+        if (index > arr.indexOf(a4_from) && index < arr.indexOf(a4_to)) {
+            return true
+        }
+        console.log(arr.indexOf(a4_from));
+        console.log(arr.indexOf(a4_to));
+    })
+    document.querySelector('.out-4').innerHTML = res;
+}
 
 // TASK 05
 // По нажатию b-5 выполняется функция f5. Функция с помощью findIndex должна найти индекс элемента массива a5, значение которого лежит от a5_from до a5_to (больше a5_from но меньше a5_to). Вывести найденный индекс в out-5. Если значение не найдено то выводить -1.
 
 let a5 = [13, 15, 22, 23, 26, 35, 72];
-let a5_from = 23;
-let a5_to = 67; 
+let a5_from = 72;
+let a5_to = 67;
 
 const f5 = () => {
+    let res = a5.findIndex((item, index) => {
+        if (item > a5_from && item < a5_to) {
+            return true;
+        }
+    })
+    document.querySelector('.out-5').innerHTML = res;
 }
 
 // TASK 06
@@ -63,9 +90,16 @@ const f5 = () => {
 
 let a6 = [13, 15, 22, 23, 26, 35, 72];
 let a6_from = 23;
-let a6_to = 67; 
+let a6_to = 67;
 
 const f6 = () => {
+    let res = [];
+    a6.findIndex((item) => {
+        if (item > a6_from && item < a6_to) {
+            res.push(item);
+        }
+    })
+    document.querySelector('.out-6').innerHTML = res[res.length - 1];
 }
 
 // TASK 07
@@ -76,34 +110,51 @@ let str7 = 'cccaBCcbBDabBddcCadcDbACacbbCdbBCADBDBdaAdcCd';
 let a7_1 = 'C'; // 43
 
 const f7 = () => {
+    let res = str7.toLocaleLowerCase().lastIndexOf(a7_1.toLocaleLowerCase());
+    document.querySelector('.out-7').innerHTML = res;
 }
 
 // TASK 08
 // По нажатию b-8 выполняется функция f8. Функция с помощью lastIndexOf должна найти наибольший индекс символа a8_1 в строке str8, и вывести out-8. Если значение не найдено то выводить -1. Реализуйте поиск независимо от регистра. 
 
 let str8 = 'C#CdABd$d@$Ab!#@#bcAaB@c$D#@AD$A!b#!D!BB@CaAD@###@';
-let a8_1 = 'a'; // 43 ожидаю и на a и на A
+let a8_1 = 'A'; // 43 ожидаю и на a и на A
 
 const f8 = () => {
+    let res = str8.toLocaleLowerCase().lastIndexOf(a8_1.toLocaleLowerCase());
+    document.querySelector('.out-8').innerHTML = res;
 }
 
 // TASK 09
 // По нажатию b-9 выполняется функция f9. Функция с помощью lastIndexOf должна найти наибольший индекс символа a9_1 в массиве a9, и вывести out-9. Если значение не найдено то выводить -1. 
 
-let a9 = ['2', '17', '45', '5', '14', '5', '45', '107']; 
+let a9 = ['2', '17', '45', '5', '14', '5', '45', '107'];
 let a9_1 = '5'; // ожидаю индекс 5
 
 const f9 = () => {
+    let res = a9.lastIndexOf(a9_1);
+    document.querySelector('.out-9').innerHTML = res;
 }
 
 // TASK 10
 // По нажатию b-10 выполняется функция f10. Функция должна заполнить массив a10_res, на основе массива значений a10 и массива индексов a11. Т.е. мы берем числа из a11 и смотрим есть ли значения с такими индексами в a10. Если есть - добавляем значения в a10_res. Результат a10_res выводим в out-10 через пробел. Перед заполнением чистим a10_res. Если значения с таким индексом не существует пропускаем индекс.
 
-let a10 = [-2, 3, -4, 5, -6, 7];  
-let a11 = [0,4,22];
+let a10 = [-2, 3, -4, 5, -6, 7];
+let a11 = [0, 4, 22];
 let a10_res = []; // ожидаю [-2, -6];
 
 const f10 = () => {
+    a10_res = [];
+    for (let i = 0; i < a11.length; i++) {
+        if (a10[a11[i]] !== undefined) {
+            a10_res.push(a10[a11[i]]);
+        }
+    }
+    let out = document.querySelector('.out-10');
+    out.innerHTML = '';
+    for (let i = 0; i < a10_res.length; i++) {
+        out.innerHTML += a10_res[i] + ' ';
+    }
 }
 
 
