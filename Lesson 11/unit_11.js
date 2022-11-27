@@ -5,7 +5,8 @@
 let a1 = [13, 15, 22, 23, 26, 35, 72];
 
 const f1 = () => {
-
+    let res = a1.join();
+    document.querySelector('.out-1').innerHTML = res;
 }
 
 
@@ -15,7 +16,8 @@ const f1 = () => {
 let a2 = [13, 15, 22, 23, 26, 35, 72];
 
 const f2 = () => {
-
+    let res = a2.join('');
+    document.querySelector('.out-2').innerHTML = res;
 }
 
 // TASK 03
@@ -24,7 +26,8 @@ const f2 = () => {
 let a3 = [13, 15, 22, 23, 26, 35, 72];
 
 const f3 = () => {
-
+    let res = a3.join('=');
+    document.querySelector('.out-3').innerHTML = res;
 }
 
 // TASK 04
@@ -36,7 +39,15 @@ let a4 = [66, 77, 88];
 let delimiter4 = '-';
 
 const f4 = (arr, delimiter) => {
-
+    let res = '';
+    for (let i = 0; i < arr.length; i++) {
+        if (i === arr.length - 1) {
+            res += arr[i];
+            continue;
+        }
+        res += arr[i] + delimiter;
+    }
+    return res
 }
 
 // TASK 05
@@ -48,6 +59,7 @@ a5[56] = 56;
 a5[57] = 56;
 
 const f5 = () => {
+    document.querySelector('.out-5').innerHTML = a5.join();
 }
 
 // TASK 06 
@@ -58,8 +70,8 @@ let s6 = 'hello';
 let a6_res = [];
 
 const f6 = () => {
-
-    // document.querySelector('.out-6').innerHTML = result;
+    result = s6.split('');
+    document.querySelector('.out-6').innerHTML = result;
 }
 
 // TASK 07
@@ -70,7 +82,8 @@ let s7 = 'hello';
 let a7_res = [];
 
 const f7 = () => {
-    // document.querySelector('.out-7').innerHTML = result;
+    let result = s7.split('', 3);
+    document.querySelector('.out-7').innerHTML = result;
 }
 
 // TASK 08
@@ -80,6 +93,8 @@ let s8 = 'abrikos';
 let a8_res = '';
 
 const f8 = () => {
+    let res = s8.split('').reverse().join();
+    document.querySelector('.out-8').innerHTML = res;
 }
 
 // TASK 09
@@ -89,7 +104,8 @@ let s9 = 'hiall';
 let a9_res = [];
 
 const f9 = () => {
-    // a9_res = [...s9];
+    a9_res = [...s9];
+    document.querySelector('.out-9').innerHTML = a9_res;
 }
 
 // TASK 10
@@ -100,6 +116,11 @@ let s10 = 'fghijklmnoprsq';
 let a10_res = [];
 
 const f10 = () => {
+    a10_res = [...s10];
+    console.log(a10_res)
+    a10_res = a10_res.filter((item, index) => index >= a10_res.indexOf('l') ? true : false)
+    console.log(a10_res)
+    document.querySelector('.out-10').innerHTML = a10_res;
 }
 
 
