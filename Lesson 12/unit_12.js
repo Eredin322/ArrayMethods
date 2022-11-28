@@ -7,7 +7,12 @@ let a1_from = 7;
 let a1_to = 100;
 
 const f1 = () => {
-
+    let res = a1.every((item) => {
+        if (item > a1_from && item < a1_to) {
+            return true
+        }
+    })
+    document.querySelector('.out-1').innerHTML = res;
 }
 
 
@@ -19,7 +24,12 @@ let a2_from = 7;
 let a2_to = 100;
 
 const f2 = () => {
-
+    let res = a2.every((item) => {
+        if (item > a2_from && item < a2_to) {
+            return true
+        }
+    })
+    document.querySelector('.out-2').innerHTML = res;
 }
 
 // TASK 03
@@ -29,7 +39,12 @@ const f2 = () => {
 let a3 = [[5, 5, 11], [10, 10, 17]];
 
 const f3 = () => {
-
+    let res = a3.every(item => {
+        let sum = item.reduce((accum, item) => accum + item)
+        console.log(sum);
+        if (sum > 20) return true
+    })
+    document.querySelector('.out-3').innerHTML = res;
 }
 // В задаче 3 для вычисления суммы массива можно использовать вспомогательную доп. функцию которая считает сумму элементов.
 const summa = (arr) => {
@@ -43,7 +58,10 @@ const summa = (arr) => {
 let a4 = [[100, 200], [300, 100, 400], [500, 700, 100, 800]];
 
 const f4 = () => {
-
+    let res = a4.every(item => {
+        if (item.includes(100) !== false) return true
+    })
+    document.querySelector('.out-4').innerHTML = res;
 }
 
 // TASK 05
@@ -60,6 +78,10 @@ let a5 = [
 ];
 
 const f5 = () => {
+    let res = a5.every(item => {
+        if (item.age >= 16 && item.pay === true) return true
+    })
+    document.querySelector('.out-5').innerHTML = res;
 }
 
 // TASK 06
@@ -70,6 +92,14 @@ let a6 = [1, 4, 2, 6, 7, 3, 5, 2, 9];
 let a6_from = 1
 
 const f6 = () => {
+    let count = 0;
+    let res = '';
+    for (let i = 0; i < a6.length; i++) {
+        if (a6[i] > a6_from) count++
+    }
+    if (count === a6.length) res = true;
+    if (count !== a6.length) res = false;
+    document.querySelector('.out-6').innerHTML = res;
 }
 
 // TASK 07
@@ -84,7 +114,7 @@ const f7 = () => {
         if (index == 2) {
             a7.push(2);
         }
-        // тут ваш if....
+        if (item > a7_from) return true
     });
     document.querySelector('.out-7').innerHTML = res;
 }
@@ -95,6 +125,12 @@ const f7 = () => {
 let a8 = [10, 4, 20, 6, 70, 30, 500, 2, 9];
 
 const f8 = () => {
+    let res = a8.some((item) => {
+        if (item > 100) {
+            return true
+        }
+    })
+    document.querySelector('.out-8').innerHTML = res;
 }
 
 // TASK 09
@@ -113,6 +149,12 @@ let a9 = [
 ];
 
 const f9 = () => {
+    let res = a9.some((item) => {
+        if (item.age <= 16) {
+            return true
+        }
+    })
+    document.querySelector('.out-9').innerHTML = res;
 }
 
 // TASK 10
@@ -122,11 +164,14 @@ let a10 = [10, 20, 30, 50, 60];
 let a10_from = 55;
 
 const isBigFrom = num => {
-    // где в качестве num вы передаете a10_from
+    if (num > a10_from) return true;
 }
 
 const f10 = () => {
-
+    let res = a10.some(item => {
+        return isBigFrom(item);
+    })
+    document.querySelector('.out-10').innerHTML = res;
 }
 
 
